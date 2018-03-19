@@ -24,14 +24,17 @@ class ViewController: UIViewController {
             if let JSONOBJ = response.result.value{
                 let json = JSON(JSONOBJ)
                 
-                var text = ""
-                for (key,subJson):(String, JSON) in json["asset"] {
-                    text += "\(key): \(subJson)\n"
-                }
-                
-                self.label1.text = text
+                self.label1.text = self.JSONstrinify(json: json["asset"])
             }
         }
+    }
+    
+    func JSONstrinify(json: JSON) -> String {
+        var text = ""
+        for (key,subJson):(String, JSON) in json {
+            text += "\(key): \(subJson)\n"
+        }
+        return text
     }
 
     override func didReceiveMemoryWarning() {
