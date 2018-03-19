@@ -9,4 +9,5 @@ target 'test' do
 
 # This is a combination of 3 commits.
     pod 'Alamofire', '~> 4.6'
+    pod 'SwiftyJSON'
 end
