@@ -14,9 +14,16 @@ import SwiftyJSON
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var label1: UILabel!
+    @IBOutlet weak var input1: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
     func req(requestURL: String){
@@ -28,7 +35,6 @@ class ViewController: UIViewController {
             }
         }
     }
-    
     func JSONstrinify(json: JSON) -> String {
         var text = ""
         for (key,subJson):(String, JSON) in json {
@@ -37,15 +43,7 @@ class ViewController: UIViewController {
         return text
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
-    @IBOutlet weak var label1: UILabel!
-    @IBOutlet weak var input1: UITextField!
-    
-    
     @IBAction func tina(_ sender: UIButton) {
         // url request
         let requestURL = "https://iodine.herokuapp.com/asset/info/"+input1.text!
